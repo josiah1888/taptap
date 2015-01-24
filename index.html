@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="taptap">
+<head ng-controller="Home as home">
+    <script src="angular.js"></script>
+    <script src="ngRoute.js"></script>
+    <script src="index.js"></script>
+    <script src="config.js"></script>
+
+    <link href="styles/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="styles/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="styles/bootstrap/js/bootstrap.js"></script>
+
+    <title>{{ home.title }}</title>
+</head>
+<body>
+    <div class="container">
+            <ng-view></ng-view>
+    </div>
+</body>
+</html>

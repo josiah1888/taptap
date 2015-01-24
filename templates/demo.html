@@ -1,0 +1,40 @@
+﻿<div>Click button to hear test audio</div>
+<div>
+    <label>BPM: </label>
+    <input type="number" ng-model="demo.tempo" />
+    <button ng-click="demo.stopLoop()">Stop</button>
+</div>
+<div>
+    <audio id="bell">
+        <source src="/audio/bell.ogg" type="audio/ogg" />
+        Hmm browser no likey
+    </audio>
+    <audio id="csharp">
+        <source src="/audio/csharp.ogg" type="audio/ogg" />
+        Hmm browser no likey
+    </audio>
+    <audio id="metdownbeat">
+        <source src="/audio/metdownbeat.ogg" type="audio/ogg" />
+        Hmm browser no likey
+    </audio>
+    <audio id="metupbeat">
+        <source src="/audio/metupbeat.ogg" type="audio/ogg" />
+        Hmm browser no likey
+    </audio>
+</div>
+
+<div ng-repeat="track in demo.audioFileNames">
+    <span>{{track.prefferedName}} tone</span>
+    <div class="row">
+        <div class="span4">
+            <button ng-click="demo.play(track.fileName)">Play test audio</button>
+        </div>
+        <div class="span4">
+            <button ng-click="demo.loop(track.fileName, 500, 0)">Play test forever</button>
+        </div>
+    </div>
+</div>
+
+<div>
+    <button ng-click="demo.demo1('csharp')">Play demo 1</button>
+</div>
