@@ -26,15 +26,24 @@
 <div ng-repeat="track in demo.audioFileNames">
     <span>{{track.prefferedName}} tone</span>
     <div class="row">
-        <div class="span4">
+        <div class="col-sm-4">
             <button ng-click="demo.play(track.fileName)">Play test audio</button>
         </div>
-        <div class="span4">
+        <div class="col-sm-4">
             <button ng-click="demo.loop(track.fileName, 500, 0)">Play test forever</button>
         </div>
     </div>
 </div>
+<div class="row">
+    <div ng-repeat="d in demo.demos" class="col-lg-3">
+        <button ng-click="d()">Play demo {{ $index + 1 }}</button>
+    </div>
+</div>
 
-<div>
-    <button ng-click="demo.demo1('csharp')">Play demo 1</button>
+<div class="jumbotron">
+    <div>{{ demo.staffBorder }}</div>
+    <div>{{ demo.staffHigh }}</div>
+    <div>{{ demo.staffMid }}</div>
+    <div>{{ demo.staffLow }}</div>
+    <div>{{ demo.staffBorder }}</div>
 </div>
