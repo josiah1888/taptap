@@ -16,6 +16,12 @@
                 controller: 'Demo',
                 controllerAs: 'demo'
             });
+        $routeProvider.when('/play',
+            {
+                templateUrl: 'templates/play.html',
+                controller: 'Play',
+                controllerAs: 'play'
+            });
         $routeProvider.otherwise(
             {
                 redirectTo: '/'

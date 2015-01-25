@@ -4,24 +4,6 @@
     <input type="number" ng-model="demo.tempo" />
     <button ng-click="demo.stopLoop()">Stop</button>
 </div>
-<div>
-    <audio id="bell">
-        <source src="/audio/bell.ogg" type="audio/ogg" />
-        Hmm browser no likey
-    </audio>
-    <audio id="csharp">
-        <source src="/audio/csharp.ogg" type="audio/ogg" />
-        Hmm browser no likey
-    </audio>
-    <audio id="metdownbeat">
-        <source src="/audio/metdownbeat.ogg" type="audio/ogg" />
-        Hmm browser no likey
-    </audio>
-    <audio id="metupbeat">
-        <source src="/audio/metupbeat.ogg" type="audio/ogg" />
-        Hmm browser no likey
-    </audio>
-</div>
 
 <div ng-repeat="track in demo.audioFileNames">
     <span>{{track.prefferedName}} tone</span>
