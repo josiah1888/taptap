@@ -40,11 +40,11 @@
         </div>
     </div>
     <div class="row">
-        <div class="left-button jumbotron col-sm-5 hidden-md hidden-lg" tabindex="3">
+        <div class="left-button jumbotron col-sm-5 hidden-md hidden-lg" tabindex="3" ng-touch="play.left.tap()">
 
         </div>
-        <div class="right-button jumbotron col-sm-5 hidden-md hidden-lg" tabindex="4">
-
+        <div class="right-button jumbotron col-sm-5 hidden-md hidden-lg" tabindex="4" ng-click="play.right.tap()">
+            <span ng-model="play.test"></span>
         </div>
     </div>
 </div>

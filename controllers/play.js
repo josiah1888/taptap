@@ -189,5 +189,16 @@
                 vm.staff.low.push('space');
             }
         };
+
+        vm.test = '';
+        vm.left = {};
+        vm.right = {};
+        vm.left.tap = function() {
+            vm.play('metupbeat');
+            vm.test += 'x';
+        };
+        vm.right.tap = function() {
+            vm.play('metdownbeat');
+        };
     }]);
 })();
