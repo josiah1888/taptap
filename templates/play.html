@@ -1,23 +1,11 @@
 ﻿<div class="jumbotron main-view" tabindex="1" ng-keydown="play.keyPress($event)">
 
     <div class="jumbotron staff" tabindex="2">
-        <div class="row">
-            <div class="col-xs-1">
-                <button ng-click="play.play('metdownbeat')">Boom</button>
-            </div>
-            <div class="col-xs-1">
-                <button ng-click="play.play('metupbeat')">Bah</button>
-            </div>
-            <div class="col-xs-1">
-                <button ng-click="play.play('csharp')">Click</button>
-            </div>
-        </div>
 
         <!--<div ng-bind-html="trustedOff"></div>-->
         <!--<div>{{ play.staff.high }}</div>-->
         <!--<div>{{ play.staff.mid }}</div>-->
         <!--<div>{{ play.staff.low }}</div>-->
-
         <div>
             <i ng-repeat="i in play.staff.border track by $index" class="glyphicon glyphicon-asterisk"
                ng-model="i" ng-class="i"></i>
@@ -40,11 +28,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="left-button jumbotron col-sm-5 hidden-md hidden-lg" tabindex="3" ng-touch="play.left.tap()">
-
-        </div>
-        <div class="right-button jumbotron col-sm-5 hidden-md hidden-lg" tabindex="4" ng-click="play.right.tap()">
-            <span ng-model="play.test"></span>
+        <div class="col-xs-12 hidden-md hidden-lg">
+            <button type="button" class="left-button jumbotron" style="width: 40%;" tabindex="3" ng-click="play.left.tap()"></button>
+            <button type="button" class="right-button jumbotron" style="width: 40%;" tabindex="4" ng-click="play.right.tap()"></button>
         </div>
     </div>
 </div>

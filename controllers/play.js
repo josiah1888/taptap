@@ -7,7 +7,7 @@
         var vm = this;
 
         // #region declarations
-        vm.tempo = 120;
+        vm.tempo = 60;
         var s = 15 / (vm.tempo / 1000);
         vm.staff = {
             border: [],
@@ -143,13 +143,13 @@
                 splitBars();
                 currentBeat = undefined;
                 ++i;
-                if (i === 32) {
+                if (i === 16) {
                     isStarted = false;
                 } else {
                     isStarted = true;
                 }
 
-            }, s, 32);
+            }, s, 16);
             stop = function() {
                 $interval.cancel(start);
             };
@@ -194,11 +194,26 @@
         vm.left = {};
         vm.right = {};
         vm.left.tap = function() {
-            vm.play('metupbeat');
-            vm.test += 'x';
+            var beat = 'metupbeat';
+            if (typeof beat !== 'undefined') {
+                vm.play(beat);
+                currentBeat = beat;
+
+                if (!isStarted) {
+                    vm.startTest();
+                }
+            }
         };
         vm.right.tap = function() {
-            vm.play('metdownbeat');
+            var beat = 'metdownbeat';
+            if (typeof beat !== 'undefined') {
+                vm.play(beat);
+                currentBeat = beat;
+
+                if (!isStarted) {
+                    vm.startTest();
+                }
+            }
         };
     }]);
 })();
