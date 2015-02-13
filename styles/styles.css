@@ -1,0 +1,24 @@
+﻿.jumbotron div {
+  line-height: 0.75em;
+  font-family: monospace; }
+  .jumbotron div i.off {
+    color: #333333; }
+  .jumbotron div i.on {
+    color: red; }
+  .jumbotron div i.space {
+    visibility: hidden; }
+  .jumbotron div i.bar-line {
+    background-color: #999999;
+    color: #999999; }
+.jumbotron.main-view {
+  background-color: #e6e6e6; }
+.jumbotron.staff {
+  background-color: #c9c9c9; }
+.jumbotron.left-button {
+  background-color: #c9c9c9;
+  margin: 10px; }
+.jumbotron.right-button {
+  background-color: #c9c9c9;
+  margin: 10px; }
+
+/*# sourceMappingURL=styles.css.map */

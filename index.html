@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="taptap" ng-controller="Home as home">
+<head>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/ngRoute.js"></script>
+
+    <link href="styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="styles/styles.min.css" rel="stylesheet" />
+
+    <script src="index.js"></script>
+    <script src="config.js"></script>
+
+    <script src="controllers/demo.js"></script>
+    <script src="controllers/home.js"></script>
+    <script src="controllers/play.js"></script>
+
+    <title>{{ home.title }}</title>
+
+
+</head>
+<body>
+
+    <section>
+        <audio id="bell">
+            <source src="/audio/bell.ogg" type="audio/ogg" />
+            Hmm browser no likey
+        </audio>
+        <audio id="csharp">
+            <source src="/audio/csharp.ogg" type="audio/ogg" />
+            Hmm browser no likey
+        </audio>
+        <audio id="metdownbeat">
+            <source src="/audio/metdownbeat.ogg" type="audio/ogg" />
+            Hmm browser no likey
+        </audio>
+        <audio id="metupbeat">
+            <source src="/audio/metupbeat.ogg" type="audio/ogg" />
+            Hmm browser no likey
+        </audio>
+    </section>
+
+    <section class="navbar">
+        <a href="/#/"><button class="navbar-btn">Home</button></a>
+        <a href="/#/play"><button class="navbar-btn">Play</button></a>
+        <a href="/#/demo"><button class="navbar-btn">Demo</button></a>
+    </section>
+
+    <div class="container">
+        <ng-view></ng-view>
+    </div>
+</body>
+</html>

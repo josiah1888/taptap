@@ -1,0 +1,39 @@
+﻿.jumbotron {
+    div {
+        line-height: .75em;
+        font-family: monospace;
+
+        i {
+             &.off {
+                 color: lighten(black, 20%);
+             }
+             &.on {
+                 color: red;
+             }
+             &.space {
+                 visibility:hidden;
+             }
+             &.bar-line {
+                 // change content?
+                 background-color:darken(white, 40%);
+                 color: darken(white, 40%);
+                 // maybe add width later
+             }
+        }   
+    }
+
+    &.main-view {
+        background-color: darken(white, 10%);
+    }
+    &.staff {
+        background-color: darken(white, 21%);
+    }
+    &.left-button {
+        background-color: darken(white, 21%);
+        margin: 10px;
+    }
+    &.right-button {
+        background-color: darken(white, 21%);
+        margin: 10px;
+    }
+}
