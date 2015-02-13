@@ -3,7 +3,7 @@
 
     var app = angular.module('taptap');
 
-    app.controller('Play', ['$scope', '$interval', '$sce', function($scope, $interval, $sce) {
+    app.controller('Play', ['$scope', '$interval', '$sce', 'playService', 'staffService', function($scope, $interval, $sce, playService, staffService) {
         var vm = this;
 
         // #region declarations
@@ -107,7 +107,7 @@
             }
 
             if (typeof beat !== 'undefined') {
-                vm.play(beat);
+                playService.playBeat(beat);
                 currentBeat = beat;
 
                 if (!isStarted) {
@@ -116,29 +116,23 @@
             }
         };
 
-        vm.play = function(beat) {
-            beat = document.getElementById(beat);
-            if (beat.ended === false) {
-                beat.pause();
-                beat.currentTime = 0;
-            }
-            beat.play();
-        };
-
         var currentBeat;
         var stop;
         var isStarted = false;
         vm.startTest = function() {
             var i = 0;
-            vm.staff.clear();
+            //staffService.staff.clear();
 
             var start = $interval(function() {
                 if (currentBeat === 'metdownbeat') {
-                    vm.staff.low = vm.addToStaff(vm.staff.low);
+                    //vm.staff.low = vm.addToStaff(vm.staff.low);
+                    staffService.add('low');
                 } else if (currentBeat === 'metupbeat') {
-                    vm.staff.high = vm.addToStaff(vm.staff.high);
+                    //vm.staff.high = vm.addToStaff(vm.staff.high);
+                    staffService.add('high');
                 } else {
-                    vm.addToStaff();
+                    //vm.addToStaff();
+                    staffService.add();
                 }
                 splitBars();
                 currentBeat = undefined;
@@ -196,7 +190,7 @@
         vm.left.tap = function() {
             var beat = 'metupbeat';
             if (typeof beat !== 'undefined') {
-                vm.play(beat);
+                playService.playBeat(beat);
                 currentBeat = beat;
 
                 if (!isStarted) {
@@ -207,7 +201,7 @@
         vm.right.tap = function() {
             var beat = 'metdownbeat';
             if (typeof beat !== 'undefined') {
-                vm.play(beat);
+                playService.playBeat(beat);
                 currentBeat = beat;
 
                 if (!isStarted) {

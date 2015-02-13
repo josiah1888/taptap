@@ -16,9 +16,11 @@
   background-color: #c9c9c9; }
 .jumbotron.left-button {
   background-color: #c9c9c9;
-  margin: 10px; }
+  float: left;
+  width: 45%; }
 .jumbotron.right-button {
   background-color: #c9c9c9;
-  margin: 10px; }
+  float: right;
+  width: 45%; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -7,30 +7,30 @@
         <!--<div>{{ play.staff.mid }}</div>-->
         <!--<div>{{ play.staff.low }}</div>-->
         <div>
-            <i ng-repeat="i in play.staff.border track by $index" class="glyphicon glyphicon-asterisk"
+            <i ng-repeat="i in staffService.staff.border track by $index" class="glyphicon glyphicon-asterisk"
                ng-model="i" ng-class="i"></i>
         </div>
         <div>
-            <i ng-repeat="i in play.staff.high track by $index" class="glyphicon glyphicon-asterisk"
+            <i ng-repeat="i in staffService.staff.high track by $index" class="glyphicon glyphicon-asterisk"
                ng-model="i" ng-class="i"></i>
         </div>
         <div>
-            <i ng-repeat="i in play.staff.mid track by $index" class="glyphicon glyphicon-asterisk"
+            <i ng-repeat="i in staffService.staff.mid track by $index" class="glyphicon glyphicon-asterisk"
                ng-model="i" ng-class="i"></i>
         </div>
         <div>
-            <i ng-repeat="i in play.staff.low track by $index" class="glyphicon glyphicon-asterisk"
+            <i ng-repeat="i in staffService.staff.low track by $index" class="glyphicon glyphicon-asterisk"
                ng-model="i" ng-class="i"></i>
         </div>
         <div>
-            <i ng-repeat="i in play.staff.border track by $index" class="glyphicon glyphicon-asterisk"
+            <i ng-repeat="i in staffService.staff.border track by $index" class="glyphicon glyphicon-asterisk"
                ng-model="i" ng-class="i"></i>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12 hidden-md hidden-lg">
-            <button type="button" class="left-button jumbotron" style="width: 40%;" tabindex="3" ng-click="play.left.tap()"></button>
-            <button type="button" class="right-button jumbotron" style="width: 40%;" tabindex="4" ng-click="play.right.tap()"></button>
+            <button type="button" class="left-button jumbotron" tabindex="3" ng-click="play.left.tap()"></button>
+            <button type="button" class="right-button jumbotron" tabindex="4" ng-click="play.right.tap()"></button>
         </div>
     </div>
 </div>
