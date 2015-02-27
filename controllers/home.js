@@ -22,6 +22,27 @@
             74: 'j'
         };
 
+
+
+        vm.audioFileNames = [
+            {
+                fileName: 'bell',
+                prefferedName: 'Bell'
+            },
+            {
+                fileName: 'csharp',
+                prefferedName: 'C#'
+            },
+            {
+                fileName: 'metdownbeat',
+                prefferedName: 'Met Upbeat'
+            },
+            {
+                fileName: 'metupbeat',
+                prefferedName: 'Met Downbeat'
+            }
+        ];
+
         var showBeat = function(beat) {
 
         };

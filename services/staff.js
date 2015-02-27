@@ -7,6 +7,8 @@
         var staffService = {
             add: _addToStaff,
             advance: _advanceStaff,
+            end: _end,
+            clear: _clear,
             staff: {
                 border: [],
                 high: [],
@@ -16,15 +18,6 @@
                 length: 0
             }
         };
-
-        var _staff = {
-            border: [],
-            high: [],
-            mid: [],
-            low: [],
-            compiled: [],
-            length: 0
-        }
 
         function _addToStaff(line) {
             _advanceStaff();
@@ -54,12 +47,51 @@
         }
 
         function _advanceStaff() {
-            staffService.staff.border.push('off');
-            staffService.staff.high.push('off');
-            staffService.staff.mid.push('off');
-            staffService.staff.low.push('off');
-            staffService.staff.compiled.push(0);
+            splitBars();
+            pushToStaff();
         }
+
+        function splitBars() {
+            if ((staffService.staff.compiled.length) % 16 === 0) {
+                pushToStaff('bar-line');
+            } else if ((staffService.staff.compiled.length) % 4 === 0) {
+                pushToStaff('space');
+            }
+        }
+
+        function _end() {
+            pushToStaff('bar-line');
+        }
+
+        function pushToStaff(beat) {
+            if (typeof beat === 'undefined') {
+                staffService.staff.compiled.push(0);
+                beat = 'off';
+            }
+            staffService.staff.border.push(beat);
+            staffService.staff.high.push(beat);
+            staffService.staff.mid.push(beat);
+            staffService.staff.low.push(beat);
+        }
+
+        function _clear() {
+            staffService.staff.border = [];
+            staffService.staff.high = [];
+            staffService.staff.mid = [];
+            staffService.staff.low = [];
+            staffService.staff.compiled = [];
+            staffService.staff.length = 0;
+        }
+
+        //$scope.$watch(
+        //    function() {
+        //        return staffService.staff.border;
+        //    },
+        //    function() {
+        //        staffService.staff.length = staffService.staff.border.length;
+        //    }
+        //);
+
         return staffService;
     }]);
 })();

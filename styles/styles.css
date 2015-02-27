@@ -13,7 +13,8 @@
 .jumbotron.main-view {
   background-color: #e6e6e6; }
 .jumbotron.staff {
-  background-color: #c9c9c9; }
+  background-color: #c9c9c9;
+  text-align: center; }
 .jumbotron.left-button {
   background-color: #c9c9c9;
   float: left;
