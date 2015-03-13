@@ -15,5 +15,8 @@
                 vm.met = metService.met ? 'Met On' : 'Met Off';
             };
 
+            metService.length = 16;
+
+            vm.feedback = inputService.feedback;
         }]);
 })();

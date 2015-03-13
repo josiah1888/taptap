@@ -1,0 +1,31 @@
+﻿<div class="jumbotron main-view" tabindex="1" ng-keydown="play.input($event)">
+    <button type="button" ng-click="play.toggleMet()">{{ play.met }}</button>
+    <div class="jumbotron staff" tabindex="2">
+        <div>
+            <i ng-repeat="i in play.staff.border track by $index" class="glyphicon"
+               ng-model="i" ng-class="i"></i>
+        </div>
+        <div>
+            <i ng-repeat="i in play.staff.high track by $index" class="glyphicon"
+               ng-model="i" ng-class="i"></i>
+        </div>
+        <div>
+            <i ng-repeat="i in play.staff.mid track by $index" class="glyphicon"
+               ng-model="i" ng-class="i"></i>
+        </div>
+        <div>
+            <i ng-repeat="i in play.staff.low track by $index" class="glyphicon"
+               ng-model="i" ng-class="i"></i>
+        </div>
+        <div>
+            <i ng-repeat="i in play.staff.border track by $index" class="glyphicon"
+               ng-model="i" ng-class="i"></i>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <button type="button" class="left-button jumbotron" tabindex="3" ng-click="play.input('left')" ng-class="{'hit': play.feedback.leftButton}"></button>
+            <button type="button" class="right-button jumbotron" tabindex="4" ng-click="play.input('right')" ng-class="{true: 'hit'}[play.feedback.rightButton]"></button>
+        </div>
+    </div>
+</div>

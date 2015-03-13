@@ -22,6 +22,12 @@
                 controller: 'Play',
                 controllerAs: 'play'
             });
+        $routeProvider.when('/level1',
+            {
+                templateUrl: 'templates/level.html',
+                controller: 'Level1',
+                controllerAs: 'level'
+            });
         $routeProvider.otherwise(
             {
                 redirectTo: '/'

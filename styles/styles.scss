@@ -4,45 +4,56 @@
         font-family: monospace;
 
         i {
-            &.off {
-                color: lighten(black, 20%);
+            &.off:before {
+                color: lighten(black, 45%);
+                content: "\e157";
             }
 
-            &.on {
+            &.on:before {
                 color: red;
+                content: "\e074";
             }
 
-            &.space {
+            &.space:before {
+                content: "\e157"; // has to have some kind of content
                 visibility: hidden;
             }
 
-            &.bar-line {
+            &.bar-line:before {
                 // change content?
                 background-color: darken(white, 40%);
                 color: darken(white, 40%);
+                content: "\e235";
                 // maybe add width later
             }
         }
     }
+}
 
-    &.main-view {
-        background-color: darken(white, 10%);
-    }
+&.main-view {
+    background-color: darken(white, 10%);
+}
 
-    &.staff {
-        background-color: darken(white, 21%);
-        text-align:center;
-    }
+&.staff {
+    background-color: darken(white, 21%);
+    text-align: center;
+}
 
-    &.left-button {
-        background-color: darken(white, 21%);
-        float: left;
-        width: 45%;
+button {
+    &.ng-click-active {
+        background-color: #EEE;
     }
+}
 
-    &.right-button {
-        background-color: darken(white, 21%);
-        float: right;
-        width: 45%;
-    }
+
+&.left-button {
+    background-color: darken(white, 21%);
+    float: left;
+    width: 45%;
+}
+
+&.right-button {
+    background-color: darken(white, 21%);
+    float: right;
+    width: 45%;
 }

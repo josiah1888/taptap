@@ -4,11 +4,12 @@
 
     var app = angular.module('taptap');
 
-    app.factory('metService', ['$interval', 'staffService', 'playService',  function($interval, staffService, playService) {
+    app.factory('metService', ['$interval', 'staffService', 'playService', function($interval, staffService, playService) {
         var metService = {
             start: _start,
             currentBeat: '',
-            tempo: 80,
+            length: 0,
+            tempo: 60,
             countOff: 0, // in quarter notes
             met: true
         };
@@ -32,23 +33,29 @@
                 playMet(i);
 
                 var interval = $interval(function() {
-                    if (metService.currentBeat === 'metdownbeat') {
-                        staffService.add('low');
-                    } else if (metService.currentBeat === 'metupbeat') {
-                        staffService.add('high');
-                    } else {
-                        staffService.add();
+                    if ((i % 2) === 0) {
+                        playMet(i);
+
+                    } else if ((i - 1) % 2 === 0) {
+                        if (metService.currentBeat === 'metdownbeat') {
+                            staffService.add('low');
+                        } else if (metService.currentBeat === 'metupbeat') {
+                            staffService.add('high');
+                        } else {
+                            staffService.add();
+                        }
+
+                        metService.currentBeat = undefined;
                     }
 
-                    metService.currentBeat = undefined;
-                    playMet(++i);
-                    if (i === 16) {
+                    if (i === (metService.length * 2)) {
                         staffService.end();
                         isStarted = false;
                         stop();
                     }
 
-                }, getSixteenth());
+                    i++;
+                }, getSixteenth() / 2);
                 stop = function() {
                     $interval.cancel(interval);
                 };
@@ -56,7 +63,7 @@
         }
 
         function playMet(i) {
-            if (metService.met && (i % 2 === 0)) {
+            if (metService.met && (i % 4 === 0)) {
                 playService.playBeat('csharp');
             }
         }
