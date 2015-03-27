@@ -1,10 +1,10 @@
-﻿var app = angular.angular('taptap');
+﻿var app = angular.module('taptap');
 
 app.directive('staff', function() {
     return {
         restrict: 'E',
         replace: true,
-        templateUrl: 'taptap/directives/views/staff.html',
+        templateUrl: '/directives/views/staff.html',
         require: 'ngModel',
         scope: {
             staff: '=ngModel'
