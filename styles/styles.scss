@@ -1,16 +1,26 @@
-﻿.jumbotron {
+﻿// color vars to be separated out later
+$color-primary--light: #00B11F;
+$color-primary--dark: #2B823A;
+
+$color-complement--light: #DD1000;
+$color-complement--dark: #AA4139;
+
+
+
+
+.jumbotron {
     div {
         line-height: .75em;
         font-family: monospace;
 
         i {
             &.off:before {
-                color: lighten(black, 45%);
+                color: darken($color-primary--light, 15%);
                 content: "\e157";
             }
 
             &.on:before {
-                color: red;
+                color: $color-complement--dark;
                 content: "\e074";
             }
 
@@ -20,40 +30,38 @@
             }
 
             &.bar-line:before {
-                // change content?
-                background-color: darken(white, 40%);
-                color: darken(white, 40%);
+                background-color: $color-primary--light;
+                color: darken($color-primary--light, 5%);
                 content: "\e235";
-                // maybe add width later
             }
         }
     }
 }
 
 &.main-view {
-    background-color: darken(white, 10%);
+    background-color: $color-complement--dark;
 }
 
 &.staff {
-    background-color: darken(white, 21%);
+    background-color: $color-primary--light;
     text-align: center;
 }
 
 button {
     &.ng-click-active {
-        background-color: #EEE;
+        background-color: lighten($color-primary--light, 25%);
     }
 }
 
 
 &.left-button {
-    background-color: darken(white, 21%);
+    background-color: $color-primary--light;
     float: left;
     width: 45%;
 }
 
 &.right-button {
-    background-color: darken(white, 21%);
+    background-color: $color-primary--light;
     float: right;
     width: 45%;
 }
