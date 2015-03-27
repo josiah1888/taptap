@@ -3,8 +3,8 @@
 
     var app = angular.module('taptap');
 
-    app.controller('Play', ['$scope', 'playService', 'staffService', 'metService', 'inputService',
-        function($scope, playService, staffService, metService, inputService) {
+    app.controller('Play', ['playService', 'staffService', 'metService', 'inputService',
+        function( playService, staffService, metService, inputService) {
             var vm = this;
 
             vm.staff = staffService.staff;

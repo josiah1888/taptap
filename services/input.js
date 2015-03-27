@@ -3,7 +3,7 @@
 
     var app = angular.module('taptap');
 
-    app.factory('inputService', ['playService', 'metService', function(playService, metService) {
+    app.factory('inputService', ['outputService', function(outputService) {
         var inputService = {
             input: _input,
             feedback: {
@@ -17,10 +17,7 @@
             var beat = getBeat(input);
 
             if (typeof beat !== 'undefined') {
-                showFeedback(beat);
-                playService.playBeat(beat);
-                metService.currentBeat = beat;
-                metService.start();
+                outputService.outputBeat(beat);
             }
         }
 
@@ -66,22 +63,6 @@
             72: 'h',
             74: 'j'
         };
-
-        // not working currently. Would be cool if it worked.
-        function showFeedback(beat) {
-            if (beat === 'metdownbeat') {
-                inputService.feedback.leftButton = true;
-            } else if (beat === 'metupbeat') {
-                inputService.feedback.rightButton = true;
-            }
-
-            setTimeout(clearFeedback(), inputService.feedback.length);
-        }
-
-        function clearFeedback() {
-            inputService.feedback.leftButton = false;
-            inputService.feedback.rightButton = false;
-        }
 
         return inputService;
     }]);

@@ -6,7 +6,7 @@
     app.controller('Home', [function() {
         var vm = this;
 
-        var version = '0.3';
+        var version = '0.4';
         vm.title = 'Tap Tap ' + version;
 
         var keyCodeMap = {
