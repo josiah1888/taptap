@@ -1,0 +1,67 @@
+﻿// color vars to be separated out later
+$color-primary--light: #00B11F;
+$color-primary--dark: #2B823A;
+
+$color-complement--light: #DD1000;
+$color-complement--dark: #AA4139;
+
+
+
+
+.jumbotron {
+    div {
+        line-height: .75em;
+        font-family: monospace;
+
+        i {
+            &.off:before {
+                color: darken($color-primary--light, 15%);
+                content: "\e157";
+            }
+
+            &.on:before {
+                color: $color-complement--dark;
+                content: "\e074";
+            }
+
+            &.space:before {
+                content: "\e157"; // has to have some kind of content
+                visibility: hidden;
+            }
+
+            &.bar-line:before {
+                background-color: $color-primary--light;
+                color: darken($color-primary--light, 5%);
+                content: "\e235";
+            }
+        }
+    }
+}
+
+&.main-view {
+    background-color: $color-complement--dark;
+}
+
+&.staff {
+    background-color: $color-primary--light;
+    text-align: center;
+}
+
+button {
+    &.ng-click-active {
+        background-color: lighten($color-primary--light, 25%);
+    }
+}
+
+
+&.left-button {
+    background-color: $color-primary--light;
+    float: left;
+    width: 45%;
+}
+
+&.right-button {
+    background-color: $color-primary--light;
+    float: right;
+    width: 45%;
+}
