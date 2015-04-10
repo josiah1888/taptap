@@ -5,40 +5,51 @@
 
     app.factory('staffService', [function() {
         var staffService = {
-            add: _addToStaff,
+            add: _add,
             advance: _advanceStaff,
             end: _end,
             clear: _clear,
-            staff: {
+            playerStaff: {
                 border: [],
                 high: [],
                 mid: [],
                 low: [],
                 compiled: [],
-                length: 0
+                length: 0,
+                name: 'player'
+            },
+            computerStaff: {
+                border: [],
+                high: [],
+                mid: [],
+                low: [],
+                compiled: [],
+                length: 0,
+                name: 'computer'
             }
         };
 
-        function _addToStaff(line) {
-            _advanceStaff();
+        function _add(staff, line) {
+            _advanceStaff(staff);
             if (typeof line === 'undefined') {
                 return;
             } else {
-                staffService.staff.compiled.pop();
-                staffService.staff.compiled.push(1);
+                var staff = getStaff(staff);
+                staff.compiled.pop();
+                staff.compiled.push(1);
 
                 switch (line) {
                     case 'high':
-                        staffService.staff.high.pop();
-                        staffService.staff.high.push('on');
+                        staff.high.pop();
+                        staff.high.push('on');
                         break;
                     case 'mid':
-                        staffService.staff.mid.pop();
-                        staffService.staff.mid.push('on');
+                        staff.mid.pop();
+                        staff.mid.push('on');
                         break;
                     case 'low':
-                        staffService.staff.low.pop();
-                        staffService.staff.low.push('on');
+                        staff.low.pop();
+                        staff.low.push('on');
                         break;
                 }
 
@@ -46,41 +57,54 @@
             }
         }
 
-        function _advanceStaff() {
-            splitBars();
-            pushToStaff();
+        function _advanceStaff(staff) {
+            splitBars(staff);
+            pushToStaff(staff);
         }
 
-        function splitBars() {
-            if ((staffService.staff.compiled.length) % 16 === 0) {
-                pushToStaff('bar-line');
-            } else if ((staffService.staff.compiled.length) % 4 === 0) {
-                pushToStaff('space');
+        function getStaff(staff) {
+            if (staff === 'player') {
+                return staffService.playerStaff;
+            } else if (staff === 'computer') {
+                return staffService.computerStaff;
+            } else {
+                console.log('Unrecognized staff: ', staff);
             }
         }
 
-        function _end() {
-            pushToStaff('bar-line');
+        function splitBars(staff) {
+            var staff = getStaff(staff);
+            if ((staff.compiled.length) % 16 === 0) {
+                pushToStaff(staff.name, 'bar-line');
+            } else if ((staff.compiled.length) % 4 === 0) {
+                pushToStaff(staff.name, 'space');
+            }
         }
 
-        function pushToStaff(beat) {
+        function _end(staff) {
+            pushToStaff(staff, 'bar-line');
+        }
+
+        function pushToStaff(staff, beat) {
+            var staff = getStaff(staff);
             if (typeof beat === 'undefined') {
-                staffService.staff.compiled.push(0);
+                staff.compiled.push(0);
                 beat = 'off';
             }
-            staffService.staff.border.push(beat);
-            staffService.staff.high.push(beat);
-            staffService.staff.mid.push(beat);
-            staffService.staff.low.push(beat);
+            staff.border.push(beat);
+            staff.high.push(beat);
+            staff.mid.push(beat);
+            staff.low.push(beat);
         }
 
-        function _clear() {
-            staffService.staff.border = [];
-            staffService.staff.high = [];
-            staffService.staff.mid = [];
-            staffService.staff.low = [];
-            staffService.staff.compiled = [];
-            staffService.staff.length = 0;
+        function _clear(staff) {
+            var staff = getStaff(staff);
+            staff.border = [];
+            staff.high = [];
+            staff.mid = [];
+            staff.low = [];
+            staff.compiled = [];
+            staff.length = 0;
         }
 
         //$scope.$watch(

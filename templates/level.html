@@ -1,6 +1,7 @@
 ﻿<div class="jumbotron main-view" tabindex="1" ng-keydown="level.input($event)">
     <button type="button" ng-click="level.toggleMet()">{{ level.met }}</button>
-    <staff ng-model="level.gameStaff"></staff>
+    <button type="button" ng-click="level.showComputer()">Show Computer</button>
+    <staff ng-model="level.computerStaff"></staff>
     <staff ng-model="level.playerStaff"></staff>
     <div class="row">
         <div class="col-xs-12">

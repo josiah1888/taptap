@@ -6,6 +6,7 @@
     app.factory('inputService', ['outputService', function(outputService) {
         var inputService = {
             input: _input,
+            getBeat: _getBeat,
             feedback: {
                 leftButton: false,
                 rightButton: false,
@@ -14,14 +15,14 @@
         };
 
         function _input(input) {
-            var beat = getBeat(input);
+            var beat = _getBeat(input);
 
             if (typeof beat !== 'undefined') {
                 outputService.outputBeat(beat);
             }
         }
 
-        function getBeat(input) {
+        function _getBeat(input) {
             var code = keyCodeMap[input.keyCode] || input;
             var beat;
 

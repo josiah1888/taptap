@@ -6,10 +6,11 @@
 
     app.factory('metService', ['$interval', 'staffService', 'playService', function($interval, staffService, playService) {
         var metService = {
-            start: _start,
+            startPlayer: _startPlayer,
+            startComputer: _startComputer,
             currentBeat: '',
             length: 0,
-            tempo: 60,
+            tempo: 40,
             countOff: 0, // in quarter notes
             met: true
         };
@@ -22,44 +23,105 @@
             return _sixteenth;
         }
 
-        var i;
-        var stop;
-        var isStarted = false;
-        function _start() {
-            if (!isStarted) {
-                isStarted = true;
-                staffService.clear();
-                i = 0;
-                playMet(i);
+        var player;
+        function Player() {
+            var isStarted = false;
+            var stop;
+            var counter;
 
-                var interval = $interval(function() {
-                    if ((i % 2) === 0) {
-                        playMet(i);
+            this.start = function() {
+                if (!isStarted) {
+                    counter = 0;
+                    isStarted = true;
+                    staffService.clear('player');
+                    playMet(counter);
 
-                    } else if ((i - 1) % 2 === 0) {
-                        if (metService.currentBeat === 'metdownbeat') {
-                            staffService.add('low');
-                        } else if (metService.currentBeat === 'metupbeat') {
-                            staffService.add('high');
-                        } else {
-                            staffService.add();
+                    var interval = $interval(function() {
+                        if ((counter % 2) === 0) {
+                            playMet(counter);
+
+                        } else if ((counter - 1) % 2 === 0) {
+                            if (metService.currentBeat === 'metdownbeat') {
+                                staffService.add('player', 'low');
+                            } else if (metService.currentBeat === 'metupbeat') {
+                                staffService.add('player', 'high');
+                            } else {
+                                staffService.add('player');
+                            }
+
+                            metService.currentBeat = undefined;
                         }
 
-                        metService.currentBeat = undefined;
+                        if (counter === (metService.length * 2)) {
+                            staffService.end('player');
+                            isStarted = false;
+                            stop();
+                        }
+
+                        counter++;
+                    }, getSixteenth() / 2);
+
+                    stop = function() {
+                        if (!$interval.cancel(interval)) {
+                            console.log('Interval failed to cancel.');
+                        }
+                    };
+                }
+
+                return isStarted;
+            }
+        }
+
+        function _startPlayer() {
+            if (typeof player === 'undefined') {
+                player = new Player();
+            }
+
+            player.start();
+        }
+
+
+        var computer;
+        function Computer(beats) {
+            var counter;
+            var stop;
+            this.start = function() {
+                counter = 0;
+                var interval = $interval(function() {
+                    playMet(counter * 2);
+
+                    if (beats[counter] === 'metdownbeat') {
+                        staffService.add('computer', 'low');
+                    } else if (beats[counter] === 'metupbeat') {
+                        staffService.add('computer', 'high');
+                    } else {
+                        staffService.add('computer');
                     }
 
-                    if (i === (metService.length * 2)) {
-                        staffService.end();
-                        isStarted = false;
+                    playService.playBeat(beats[counter]);
+
+
+                    if (counter === (metService.length - 1)) {
+                        staffService.end('computer');
                         stop();
                     }
 
-                    i++;
-                }, getSixteenth() / 2);
+                    counter++;
+                }, getSixteenth());
+
                 stop = function() {
-                    $interval.cancel(interval);
+                    if (!$interval.cancel(interval)) {
+                        console.log('Interval failed to cancel.');
+                    }
                 };
             }
+        }
+        function _startComputer(beats) {
+            if (typeof computer === 'undefined') {
+                computer = new Computer(beats);
+            }
+            staffService.clear('computer');
+            computer.start();
         }
 
         function playMet(i) {

@@ -4,10 +4,10 @@
     var app = angular.module('taptap');
 
     app.controller('Play', ['playService', 'staffService', 'metService', 'inputService',
-        function( playService, staffService, metService, inputService) {
+        function(playService, staffService, metService, inputService) {
             var vm = this;
 
-            vm.staff = staffService.staff;
+            vm.staff = staffService.playerStaff;
             vm.input = inputService.input;
             vm.met = metService.met ? 'Met On' : 'Met Off';
             vm.toggleMet = function() {
