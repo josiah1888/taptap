@@ -10,7 +10,7 @@
             startComputer: _startComputer,
             currentBeat: '',
             length: 0,
-            tempo: 40,
+            tempo: 80,
             countOff: 0, // in quarter notes
             met: true
         };
@@ -69,7 +69,7 @@
                 }
 
                 return isStarted;
-            }
+            };
         }
 
         function _startPlayer() {
@@ -79,7 +79,6 @@
 
             player.start();
         }
-
 
         var computer;
         function Computer(beats) {
@@ -100,7 +99,6 @@
 
                     playService.playBeat(beats[counter]);
 
-
                     if (counter === (metService.length - 1)) {
                         staffService.end('computer');
                         stop();
@@ -114,7 +112,7 @@
                         console.log('Interval failed to cancel.');
                     }
                 };
-            }
+            };
         }
         function _startComputer(beats) {
             if (typeof computer === 'undefined') {
