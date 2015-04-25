@@ -10,7 +10,7 @@
             startComputer: _startComputer,
             currentBeat: '',
             length: 0,
-            tempo: 80,
+            tempo: 40,
             countOff: 0, // in quarter notes
             met: true
         };
