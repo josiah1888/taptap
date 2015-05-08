@@ -27,7 +27,12 @@
         _init();
 
         function _playBeat(beat) {
-            createjs.Sound.play(beat);
+            var sound = createjs.Sound.play(beat);
+            if (beat === 'csharp') {
+                sound.volume = 1.0;
+            } else {
+                sound.volume = 0.6;
+            }
         }
 
         return playService;

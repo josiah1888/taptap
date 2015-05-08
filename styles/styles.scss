@@ -5,9 +5,6 @@ $color-primary--dark: #2B823A;
 $color-complement--light: #DD1000;
 $color-complement--dark: #AA4139;
 
-
-
-
 .jumbotron {
     div {
         line-height: .75em;
@@ -38,30 +35,59 @@ $color-complement--dark: #AA4139;
     }
 }
 
-&.main-view {
+.main-view {
     background-color: $color-complement--dark;
 }
 
-&.staff {
+.staff {
     background-color: $color-primary--light;
     text-align: center;
 }
 
 button {
-    &.ng-click-active {
+    &.ng-click-active, &.hit {
         background-color: lighten($color-primary--light, 25%);
     }
 }
 
 
-&.left-button {
+.left-button {
     background-color: $color-primary--light;
     float: left;
     width: 45%;
 }
 
-&.right-button {
+.right-button {
     background-color: $color-primary--light;
     float: right;
     width: 45%;
+}
+
+.evaluator {
+    background-color: $color-primary--dark;
+}
+
+input[type="range"] {
+    display: inline-block;
+    max-width: 150px;
+}
+
+label.volume {
+    color: #FFF;
+    font-size: large;
+    position: relative;
+    bottom: 7px;
+}
+
+.countOff {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    overflow: auto;
 }

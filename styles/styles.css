@@ -22,7 +22,7 @@
   background-color: #00B11F;
   text-align: center; }
 
-button.ng-click-active {
+button.ng-click-active, button.hit {
   background-color: #31ff55; }
 
 .left-button {
@@ -34,5 +34,30 @@ button.ng-click-active {
   background-color: #00B11F;
   float: right;
   width: 45%; }
+
+.evaluator {
+  background-color: #2B823A; }
+
+input[type="range"] {
+  display: inline-block;
+  max-width: 150px; }
+
+label.volume {
+  color: #FFF;
+  font-size: large;
+  position: relative;
+  bottom: 7px; }
+
+.countOff {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  overflow: auto; }
 
 /*# sourceMappingURL=styles.css.map */

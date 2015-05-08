@@ -36,7 +36,7 @@
             } else {
                 var staff = getStaff(staff);
                 staff.compiled.pop();
-                staff.compiled.push(1);
+                staff.compiled.push(line);
 
                 switch (line) {
                     case 'high':

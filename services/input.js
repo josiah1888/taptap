@@ -6,12 +6,7 @@
     app.factory('inputService', ['outputService', function(outputService) {
         var inputService = {
             input: _input,
-            getBeat: _getBeat,
-            feedback: {
-                leftButton: false,
-                rightButton: false,
-                length: 0
-            }
+            getBeat: _getBeat
         };
 
         function _input(input) {

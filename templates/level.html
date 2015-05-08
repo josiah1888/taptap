@@ -1,12 +1,30 @@
 ﻿<div class="jumbotron main-view" tabindex="1" ng-keydown="level.input($event)">
-    <button type="button" ng-click="level.toggleMet()">{{ level.met }}</button>
-    <button type="button" ng-click="level.showComputer()">Show Computer</button>
+    <div class="row">
+        <div class="col-sm-4">
+            <button type="button" ng-click="level.showComputer()">Show Computer</button>
+        </div>
+        <div class="col-sm-4">
+            <button type="button" ng-click="level.toggleMet()">{{ level.shouldPlayMet }}</button>
+        </div>
+        <div class="col-sm-4">
+            <div>
+                <label for="tempo" class="volume">Tempo:</label>
+                <input name="tempo" type="range" min="{{ level.met.min }}" max="{{ level.met.max }}" ng-model="level.met.tempo" />
+            </div>
+        </div>
+    </div>
     <staff ng-model="level.computerStaff"></staff>
     <staff ng-model="level.playerStaff"></staff>
     <div class="row">
         <div class="col-xs-12">
-            <button type="button" class="left-button jumbotron" tabindex="3" ng-click="level.input('left')" ng-class="{'hit': level.feedback.leftButton}"></button>
-            <button type="button" class="right-button jumbotron" tabindex="4" ng-click="level.input('right')" ng-class="{true: 'hit'}[level.feedback.rightButton]"></button>
+            <button type="button" class="left-button jumbotron" tabindex="3" ng-click="level.input('left')" ng-class="{hit: level.feedback.leftButton}"></button>
+            <button type="button" class="right-button jumbotron" tabindex="4" ng-click="level.input('right')" ng-class="{hit: level.feedback.rightButton}"></button>
         </div>
     </div>
+    <evaluator ng-model="level.evaluation"></evaluator>
+
+    <div class="jumbotron countOff text-center" ng-show="level.countOff.show">
+        <span class="h1">{{level.countOff.n}}</span>
+    </div>
+    
 </div>
