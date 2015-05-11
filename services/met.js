@@ -13,7 +13,7 @@
                 length: 0,
                 min: 25,
                 max: 120,
-                tempo: 45,
+                tempo: 55,
                 countOff: 4, // in quarter notes
                 shouldPlayMet: true
             };
@@ -31,21 +31,22 @@
                 this.start = function() {
                     if (!isStarted) {
                         isStarted = true;
+                        evaluatorService.evaluation.show = false;
                         counter = (metService.countOff) * -4;
                         staffService.clear('player');
-                        tryPlayMet(counter);
+                        playMet(counter);
 
                         var interval = $interval(function() {
                             if (counter < 0) {
-                                tryPlayMet(counter);
+                                playMet(counter);
                                 if (counter % 4 === 0) {
                                     feedbackService.setCountOff(counter / -4);
-
+                                    metService.currentBeat = null;
                                 }
                             } else {
                                 feedbackService.setCountOff(0);
                                 if ((counter % 2) === 0) {
-                                    tryPlayMet(counter);
+                                    playMet(counter);
 
                                 } else if ((counter - 1) % 2 === 0) {
                                     if (metService.currentBeat === 'metdownbeat') {
@@ -75,6 +76,7 @@
                             }
 
                             evaluatorService.evaluate();
+                            feedbackService.clear();
                         };
 
                         return isStarted;
@@ -97,7 +99,7 @@
                 this.start = function() {
                     counter = 0;
                     var interval = $interval(function() {
-                        tryPlayMet(counter * 2);
+                        playMet(counter * 2);
 
                         if (beats[counter] === 'metdownbeat') {
                             staffService.add('computer', 'low');
@@ -123,6 +125,7 @@
                             console.log('Interval failed to cancel.');
                         }
                         feedbackService.clear();
+                        computer = undefined;
                     };
                 };
             }
@@ -134,14 +137,11 @@
                 computer.start();
             }
 
-            function tryPlayMet(i) {
+            function playMet(i) {
                 if (metService.shouldPlayMet && (i % 4 === 0)) {
-                    playMet();
+                    playService.playBeat('csharp');
+                    feedbackService.showFeedback('csharp');
                 }
-            }
-
-            function playMet() {
-                playService.playBeat('csharp');
             }
 
             return metService;

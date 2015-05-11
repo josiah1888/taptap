@@ -3,9 +3,10 @@
 
     var app = angular.module('taptap');
 
-    app.controller('Level1', ['playService', 'staffService', 'metService', 'inputService', 'outputService', 'feedbackService', 'evaluatorService',
-        function(playService, staffService, metService, inputService, outputService, feedbackService, evaluatorService) {
+    app.controller('Level1', ['$scope', '$routeParams', 'playService', 'staffService', 'metService', 'inputService', 'outputService', 'feedbackService', 'evaluatorService',
+        function($scope, $routeParams, playService, staffService, metService, inputService, outputService, feedbackService, evaluatorService) {
             var vm = this;
+            var lines = getLines($routeParams.level);
 
             vm.playerStaff = staffService.playerStaff;
             vm.computerStaff = staffService.computerStaff;
@@ -13,25 +14,76 @@
             vm.met = metService;
             vm.shouldPlayMet = metService.shouldPlayMet ? 'Met On' : 'Met Off';
             vm.toggleMet = function() {
-                metService.met = !metService.met;
-                vm.met = metService.met ? 'Met On' : 'Met Off';
+                metService.shouldPlayMet = !metService.shouldPlayMet;
+                vm.shouldPlayMet = metService.shouldPlayMet ? 'Met On' : 'Met Off';
             };
-
-            var lines = [
-                'metupbeat', 'metupbeat', 'metupbeat', 'metupbeat',
-                'metdownbeat', 'metdownbeat', 'metdownbeat', 'metdownbeat',
-                'metupbeat', 'metupbeat', 'metupbeat', 'metupbeat',
-                'metdownbeat', 'metdownbeat', 'metdownbeat', 'metdownbeat',
-            ];
             vm.showComputer = function() {
                 metService.startComputer(lines);
             };
+            vm.showComputer();
+
             metService.length = lines.length;
-
             vm.feedback = feedbackService;
-
             vm.evaluation = evaluatorService.evaluation;
-
             vm.countOff = feedbackService.countOff;
         }]);
+
+    function getLines(level) {
+        switch (level) {
+            default:
+            case '1':
+                return ['metupbeat', 'metupbeat', 'metupbeat', 'metupbeat',
+                         'metdownbeat', 'metdownbeat', 'metdownbeat', 'metdownbeat',
+                         'metupbeat', 'metupbeat', 'metupbeat', 'metupbeat',
+                         'metdownbeat', 'metdownbeat', 'metdownbeat', 'metdownbeat'];
+            case '2':
+                return ['metdownbeat', 'metdownbeat', '', 'metdownbeat',
+                        'metupbeat', 'metdownbeat', 'metdownbeat', '',
+                        'metdownbeat', 'metdownbeat', '', 'metdownbeat',
+                        'metupbeat', '', 'metupbeat', '', ];
+            case '3':
+                return ['metdownbeat', '', 'metdownbeat', '',
+                        '', 'metdownbeat', '', 'metdownbeat',
+                        '', '', 'metdownbeat', '',
+                        'metupbeat', '', '', '', ];
+            case '4':
+                return ['metdownbeat', 'metdownbeat', '', 'metdownbeat',
+                        'metupbeat', 'metdownbeat', 'metdownbeat', '',
+                        'metdownbeat', 'metdownbeat', '', 'metdownbeat',
+                        'metupbeat', '', 'metupbeat', '', ];
+            case '5':
+                return ['metdownbeat', 'metdownbeat', '', 'metdownbeat',
+                        'metupbeat', 'metdownbeat', 'metdownbeat', '',
+                        'metdownbeat', 'metdownbeat', '', 'metdownbeat',
+                        'metupbeat', '', 'metupbeat', '', ];
+            case '6':
+                return ['metdownbeat', 'metdownbeat', '', 'metdownbeat',
+                        'metupbeat', 'metdownbeat', 'metdownbeat', '',
+                        'metdownbeat', 'metdownbeat', '', 'metdownbeat',
+                        'metupbeat', '', 'metupbeat', '', ];
+            case '7':
+                return ['metdownbeat', 'metdownbeat', '', 'metdownbeat',
+                        'metupbeat', 'metdownbeat', 'metdownbeat', '',
+                        'metdownbeat', 'metdownbeat', '', 'metdownbeat',
+                        'metupbeat', '', 'metupbeat', '', ];
+            case '8':
+                return ['metdownbeat', 'metdownbeat', '', 'metdownbeat',
+                        'metupbeat', 'metdownbeat', 'metdownbeat', '',
+                        'metdownbeat', 'metdownbeat', '', 'metdownbeat',
+                        'metupbeat', '', 'metupbeat', '', ];
+            case '9':
+                return ['metdownbeat', 'metdownbeat', '', 'metdownbeat',
+                        'metupbeat', 'metdownbeat', 'metdownbeat', '',
+                        'metdownbeat', 'metdownbeat', '', 'metdownbeat',
+                        'metupbeat', '', 'metupbeat', '', ];
+            case '10':
+                return ['metdownbeat', 'metdownbeat', '', 'metdownbeat',
+                        'metupbeat', 'metdownbeat', 'metdownbeat', '',
+                        'metdownbeat', 'metdownbeat', '', 'metdownbeat',
+                        'metupbeat', '', 'metupbeat', '', ];
+        }
+    }
+
+
+
 })();

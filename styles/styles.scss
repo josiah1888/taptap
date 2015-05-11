@@ -42,12 +42,17 @@ $color-complement--dark: #AA4139;
 .staff {
     background-color: $color-primary--light;
     text-align: center;
+    height: 100%;
+    max-height: 125px;
 }
 
-button {
-    &.ng-click-active, &.hit {
-        background-color: lighten($color-primary--light, 25%);
-    }
+.evaluator {
+    @extend .staff;
+    background-color: $color-primary--dark;
+}
+
+&.ng-click-active, &.hit {
+    background-color: lighten($color-primary--light, 15%);
 }
 
 
@@ -61,10 +66,6 @@ button {
     background-color: $color-primary--light;
     float: right;
     width: 45%;
-}
-
-.evaluator {
-    background-color: $color-primary--dark;
 }
 
 input[type="range"] {

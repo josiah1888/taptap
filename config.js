@@ -22,7 +22,7 @@
                 controller: 'Play',
                 controllerAs: 'play'
             });
-        $routeProvider.when('/level1',
+        $routeProvider.when('/level/:level',
             {
                 templateUrl: 'templates/level.html',
                 controller: 'Level1',
