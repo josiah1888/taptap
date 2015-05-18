@@ -32,25 +32,26 @@
         switch (level) {
             default:
             case '1':
+                return ['metupbeat', '', '', '',
+                         'metdownbeat', '', '', '',
+                         'metupbeat', '', '', '',
+                         'metdownbeat', '', '', ''];
+            case '2':
+                return ['metupbeat', '', 'metdownbeat', '',
+                        'metupbeat', '', 'metdownbeat', '',
+                        'metdownbeat', '', 'metupbeat', '',
+                        'metdownbeat', '', 'metupbeat', '', ];
+            case '3':
+                return ['metupbeat', 'metupbeat', 'metdownbeat', 'metdownbeat',
+                         'metupbeat', 'metupbeat', 'metdownbeat', 'metdownbeat',
+                         'metdownbeat', 'metdownbeat', 'metupbeat', 'metupbeat',
+                         'metdownbeat', 'metdownbeat', 'metupbeat', 'metupbeat'];
+            case '4':
                 return ['metupbeat', 'metupbeat', 'metupbeat', 'metupbeat',
                          'metdownbeat', 'metdownbeat', 'metdownbeat', 'metdownbeat',
                          'metupbeat', 'metupbeat', 'metupbeat', 'metupbeat',
                          'metdownbeat', 'metdownbeat', 'metdownbeat', 'metdownbeat'];
-            case '2':
-                return ['metdownbeat', 'metdownbeat', '', 'metdownbeat',
-                        'metupbeat', 'metdownbeat', 'metdownbeat', '',
-                        'metdownbeat', 'metdownbeat', '', 'metdownbeat',
-                        'metupbeat', '', 'metupbeat', '', ];
-            case '3':
-                return ['metdownbeat', '', 'metdownbeat', '',
-                        '', 'metdownbeat', '', 'metdownbeat',
-                        '', '', 'metdownbeat', '',
-                        'metupbeat', '', '', '', ];
-            case '4':
-                return ['metdownbeat', 'metdownbeat', '', 'metdownbeat',
-                        'metupbeat', 'metdownbeat', 'metdownbeat', '',
-                        'metdownbeat', 'metdownbeat', '', 'metdownbeat',
-                        'metupbeat', '', 'metupbeat', '', ];
+                // repeats
             case '5':
                 return ['metdownbeat', 'metdownbeat', '', 'metdownbeat',
                         'metupbeat', 'metdownbeat', 'metdownbeat', '',

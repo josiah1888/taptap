@@ -2,41 +2,41 @@
   line-height: 0.75em;
   font-family: monospace; }
   .jumbotron div i.off:before {
-    color: #006412;
+    color: #00e5bd;
     content: "\e157"; }
   .jumbotron div i.on:before {
-    color: #AA4139;
+    color: #FF6C32;
     content: "\e074"; }
   .jumbotron div i.space:before {
     content: "\e157";
     visibility: hidden; }
   .jumbotron div i.bar-line:before {
-    background-color: #00B11F;
-    color: #00981b;
+    background-color: #32FFDC;
+    color: #19ffd8;
     content: "\e235"; }
 
 .main-view {
-  background-color: #AA4139; }
+  background-color: #FF6C32; }
 
 .staff, .evaluator {
-  background-color: #00B11F;
+  background-color: #32FFDC;
   text-align: center;
   height: 100%;
   max-height: 125px; }
 
 .evaluator {
-  background-color: #2B823A; }
+  background-color: #00B294; }
 
 .ng-click-active, .hit {
-  background-color: #00fd2c; }
+  background-color: #98ffed; }
 
 .left-button {
-  background-color: #00B11F;
+  background-color: #32FFDC;
   float: left;
   width: 45%; }
 
 .right-button {
-  background-color: #00B11F;
+  background-color: #32FFDC;
   float: right;
   width: 45%; }
 

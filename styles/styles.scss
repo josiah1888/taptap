@@ -1,9 +1,9 @@
 ﻿// color vars to be separated out later
-$color-primary--light: #00B11F;
-$color-primary--dark: #2B823A;
+$color-primary--light: #32FFDC;
+$color-primary--dark: #00B294;
 
-$color-complement--light: #DD1000;
-$color-complement--dark: #AA4139;
+$color-complement--light: #FF8758;
+$color-complement--dark: #FF6C32;
 
 .jumbotron {
     div {
@@ -52,7 +52,7 @@ $color-complement--dark: #AA4139;
 }
 
 &.ng-click-active, &.hit {
-    background-color: lighten($color-primary--light, 15%);
+    background-color: lighten($color-primary--light, 20%);
 }
 
 
