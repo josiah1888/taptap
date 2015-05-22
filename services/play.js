@@ -13,18 +13,17 @@
         var beats = [
             { id: 'metdownbeat', src: 'metdownbeat.mp3' },
             { id: 'metupbeat', src: 'metupbeat.mp3' },
-            { id: 'csharp', src: 'csharp.mp3' },
-            { id: 'bell', src: 'bell.ogg' }
+            { id: 'csharp', src: 'csharp.mp3' }
         ];
 
-        function _init() {
+        function init() {
             if (!createjs.Sound.initializeDefaultPlugins()) {
                 console.log('Uh Oh! Default plugins aren\'t working!');
             }
 
             createjs.Sound.registerSounds(beats, audioPath);
         }
-        _init();
+        init();
 
         function _playBeat(beat) {
             var sound = createjs.Sound.play(beat);

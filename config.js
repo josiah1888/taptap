@@ -25,7 +25,7 @@
         $routeProvider.when('/level/:level',
             {
                 templateUrl: 'templates/level.html',
-                controller: 'Level1',
+                controller: 'BasicLevel',
                 controllerAs: 'level'
             });
         $routeProvider.otherwise(

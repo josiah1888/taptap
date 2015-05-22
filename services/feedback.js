@@ -6,6 +6,7 @@
     app.factory('feedbackService', [function() {
         var feedbackService = {
             showFeedback: _showFeedback,
+            computerIsPlaying: false,
             clear: _clear,
             leftButton: false,
             rightButton: false,

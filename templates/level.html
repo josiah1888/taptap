@@ -1,16 +1,14 @@
 ﻿<div class="jumbotron main-view" tabindex="1" ng-keydown="level.input($event)">
+    <nav class="navbar">
+        <a class="btn--nav" ng-repeat="i in level.getLevels()" ng-href="/#/level/{{ i }}">Level {{ i }}</a>
+    </nav>
     <div class="row">
-        <div class="col-sm-4">
-            <button type="button" ng-click="level.showComputer()">Show Computer</button>
-        </div>
-        <div class="col-sm-4">
-            <button type="button" ng-click="level.toggleMet()">{{ level.shouldPlayMet }}</button>
-        </div>
-        <div class="col-sm-4">
-            <div>
-                <label for="tempo" class="volume">Tempo:</label>
-                <input name="tempo" type="range" min="{{ level.met.min }}" max="{{ level.met.max }}" ng-model="level.met.tempo" />
-            </div>
+        <div class="col-xs-12">
+            <i ng-click="level.showComputer()" class="glyphicon controls" ng-class="{repeat: level.feedback.computerIsPlaying, play: !level.feedback.computerIsPlaying}"></i>
+            <label for="MetControl" class="met">Met:</label>
+            <i name="MetControl" ng-click="level.toggleMet()" class="fa controls met" ng-class="{'met-on': level.isMetOn, 'met-off': !level.isMetOn}"></i>
+            <label for="TempoControl" class="tempo">Tempo:</label>
+            <input class="tempo" name="TempoControl" type="range" min="{{ level.met.min }}" max="{{ level.met.max }}" ng-model="level.met.tempo" />
         </div>
     </div>
     <staff ng-model="level.computerStaff" ng-class="{hit: level.feedback.met}"></staff>
@@ -25,5 +23,4 @@
     <div class="jumbotron countOff text-center" ng-show="level.countOff.show">
         <span class="h1">{{level.countOff.n}}</span>
     </div>
-
 </div>

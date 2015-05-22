@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="taptap" ng-controller="Home as home">
 <head>
     <link href="styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="styles/styles.min.css" rel="stylesheet" />
 
     <script src="Scripts/angular.js"></script>
@@ -16,7 +17,7 @@
     <script src="controllers/demo.js"></script>
     <script src="controllers/home.js"></script>
     <script src="controllers/play.js"></script>
-    <script src="controllers/level1.js"></script>
+    <script src="controllers/basicLevel.js"></script>
 
     <script src="services/play.js"></script>
     <script src="services/staff.js"></script>
@@ -34,18 +35,6 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 </head>
 <body>
-    <section class="navbar">
-        <a href="/#/level/1"><button class="navbar-btn">Level 1</button></a>
-        <a href="/#/level/2"><button class="navbar-btn">Level 2</button></a>
-        <a href="/#/level/3"><button class="navbar-btn">Level 3</button></a>
-        <a href="/#/level/4"><button class="navbar-btn">Level 4</button></a>
-        <a href="/#/level/5"><button class="navbar-btn">Level 5</button></a>
-        <a href="/#/level/6"><button class="navbar-btn">Level 6</button></a>
-        <a href="/#/level/7"><button class="navbar-btn">Level 7</button></a>
-        <a href="/#/level/8"><button class="navbar-btn">Level 8</button></a>
-        <a href="/#/level/9"><button class="navbar-btn">Level 9</button></a>
-        <a href="/#/level/10"><button class="navbar-btn">Level 10</button></a>
-    </section>
 
     <div class="container">
         <ng-view></ng-view>

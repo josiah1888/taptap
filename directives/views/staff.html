@@ -1,10 +1,10 @@
 ﻿<section class="jumbotron staff" tabindex="2">
-    <div>
-        <i ng-repeat="i in staff.high track by $index" class="glyphicon"
+    <div class="staff-line">
+        <i class="staff-note glyphicon" ng-repeat="i in staff.high track by $index"
            ng-model="i" ng-class="i"></i>
     </div>
-    <div>
-        <i ng-repeat="i in staff.low track by $index" class="glyphicon"
+    <div class="staff-line">
+        <i class="staff-note glyphicon" ng-repeat="i in staff.low track by $index"
            ng-model="i" ng-class="i"></i>
     </div>
 </section>

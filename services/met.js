@@ -8,7 +8,11 @@
         function($interval, staffService, playService, feedbackService, evaluatorService) {
             var metService = {
                 startPlayer: _startPlayer,
+                stopPlayer: function() {
+                },
                 startComputer: _startComputer,
+                stopComputer: function() {
+                },
                 currentBeat: '',
                 length: 0,
                 min: 25,
@@ -25,7 +29,6 @@
             var player;
             function Player() {
                 var isStarted = false;
-                var stop;
                 var counter;
 
                 this.start = function() {
@@ -63,20 +66,18 @@
                                 if (counter === (metService.length * 2)) {
                                     staffService.end('player');
                                     isStarted = false;
-                                    stop();
+                                    metService.stopPlayer();
                                 }
 
                             }
                             counter++;
                         }, getSixteenth() / 2);
 
-                        stop = function() {
-                            if (!$interval.cancel(interval)) {
-                                console.log('Interval failed to cancel.');
-                            }
-
-                            evaluatorService.evaluate();
+                        metService.stopPlayer = function() {
+                            $interval.cancel(interval);
                             feedbackService.clear();
+                            evaluatorService.evaluate();
+                            player = undefined;
                         };
 
                         return isStarted;
@@ -95,7 +96,7 @@
             var computer;
             function Computer(beats) {
                 var counter;
-                var stop;
+                feedbackService.computerIsPlaying = true;
                 this.start = function() {
                     counter = 0;
                     var interval = $interval(function() {
@@ -114,21 +115,21 @@
 
                         if (counter === (metService.length - 1)) {
                             staffService.end('computer');
-                            stop();
+                            metService.stopComputer();
                         }
 
                         counter++;
                     }, getSixteenth());
 
-                    stop = function() {
-                        if (!$interval.cancel(interval)) {
-                            console.log('Interval failed to cancel.');
-                        }
+                    metService.stopComputer = function() {
+                        $interval.cancel(interval);
+                        feedbackService.computerIsPlaying = false;
                         feedbackService.clear();
                         computer = undefined;
                     };
                 };
             }
+
             function _startComputer(beats) {
                 if (typeof computer === 'undefined') {
                     computer = new Computer(beats);
