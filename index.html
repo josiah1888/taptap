@@ -3,7 +3,7 @@
 <head>
     <link href="styles/bootstrap.min.css" rel="stylesheet" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="styles/styles.min.css" rel="stylesheet" />
+    <link href="styles/styles.css" rel="stylesheet" />
 
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/ngRoute.js"></script>
@@ -11,29 +11,25 @@
 
     <script src="https://code.createjs.com/soundjs-0.6.0.min.js"></script>
 
-    <script src="index.js"></script>
-    <script src="config.js"></script>
+    <script src="src/app.js"></script>
 
-    <script src="controllers/demo.js"></script>
-    <script src="controllers/home.js"></script>
-    <script src="controllers/play.js"></script>
-    <script src="controllers/basicLevel.js"></script>
+    <script src="src/controllers/home.js"></script>
+    <script src="src/controllers/basicLevel.js"></script>
 
-    <script src="services/play.js"></script>
-    <script src="services/staff.js"></script>
-    <script src="services/met.js"></script>
-    <script src="services/input.js"></script>
-    <script src="services/output.js"></script>
-    <script src="services/feedback.js"></script>
-    <script src="services/evaluator.js"></script>
-    <script src="services/focus.js"></script>
+    <script src="src/services/play.js"></script>
+    <script src="src/services/staff.js"></script>
+    <script src="src/services/met.js"></script>
+    <script src="src/services/input.js"></script>
+    <script src="src/services/output.js"></script>
+    <script src="src/services/feedback.js"></script>
+    <script src="src/services/evaluator.js"></script>
+    <script src="src/services/focus.js"></script>
 
-    <script src="directives/staff.js"></script>
-    <script src="directives/evaluator.js"></script>
-    <script src="directives/elementFocus.js"></script>
+    <script src="src/directives/staff.js"></script>
+    <script src="src/directives/evaluator.js"></script>
+    <script src="src/directives/elementFocus.js"></script>
 
-    <title>{{ home.title }}</title>
-
+    <title ng-model="home.title"></title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 </head>
 <body>

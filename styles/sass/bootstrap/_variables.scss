@@ -279,6 +279,16 @@ $zindex-modal:             1040 !default;
 //## Define the breakpoints at which your layout will change, adapting to different screen sizes.
 
 // Extra small screen / phone
+// custom xss
+//** Deprecated `$screen-xxs` as of v3.0.1
+$screen-xxs:                  320px !default;
+//** Deprecated `$screen-xxs-min` as of v3.2.0
+$screen-xxs-min:              $screen-xxs !default;
+//** Deprecated `$screen-phone` as of v3.0.1
+$screen-phone:               $screen-xxs-min !default;
+
+$screen-xxs-max:               $screen-xs-min !default;
+
 //** Deprecated `$screen-xs` as of v3.0.1
 $screen-xs:                  480px !default;
 //** Deprecated `$screen-xs-min` as of v3.2.0
