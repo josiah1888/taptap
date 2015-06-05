@@ -1,4 +1,4 @@
-﻿<div class="jumbotron main-view" tabindex="1" ng-keydown="level.input($event)">
+﻿<div id="MainView" class="jumbotron main-view" tabindex="1" ng-keydown="level.input($event)" ng-class="{'full-screen': level.isFullScreen}">
     <nav class="navbar">
         <a class="btn--nav" ng-repeat="i in level.getLevels()" ng-href="/#/level/{{ i }}">Level {{ i }}</a>
     </nav>

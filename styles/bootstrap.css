@@ -3800,14 +3800,14 @@ a.badge:hover, a.badge:focus {
   cursor: pointer; }
 
 .jumbotron {
-  padding: 30px 15px;
-  margin-bottom: 30px;
+  padding: 22px 11px;
+  margin-bottom: 22px;
   color: inherit;
   background-color: #eeeeee; }
   .jumbotron h1, .jumbotron .h1 {
     color: inherit; }
   .jumbotron p {
-    margin-bottom: 15px;
+    margin-bottom: 11px;
     font-size: 21px;
     font-weight: 200; }
   .jumbotron > hr {
@@ -3818,10 +3818,10 @@ a.badge:hover, a.badge:focus {
     max-width: 100%; }
   @media screen and (min-width: 768px) {
     .jumbotron {
-      padding: 48px 0; }
+      padding: 35.2px 0; }
       .container .jumbotron, .container-fluid .jumbotron {
-        padding-left: 60px;
-        padding-right: 60px; }
+        padding-left: 44px;
+        padding-right: 44px; }
       .jumbotron h1, .jumbotron .h1 {
         font-size: 63px; } }
 

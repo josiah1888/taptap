@@ -11,8 +11,10 @@
 .jumbotron.staff, .jumbotron.evaluator {
   background-color: #32FFDC;
   text-align: center;
-  height: 100%;
-  max-height: 125px; }
+  height: 100px; }
+  @media screen and (max-width: 320px) {
+    .jumbotron.staff, .jumbotron.evaluator {
+      height: 65px; } }
 .jumbotron.evaluator {
   background-color: #00B294; }
 .jumbotron .staff-line {
@@ -117,7 +119,6 @@ label {
   overflow: auto; }
 
 .btn--nav {
-  -webkit-box-shadow: 0 10px 14px -7px #00b294;
   -webkit-box-shadow: 0 10px 14px -7px #00b294;
   box-shadow: 0 10px 14px -7px #00b294;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #00b294), color-stop(1, #00b294));

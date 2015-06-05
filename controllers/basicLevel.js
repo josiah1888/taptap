@@ -3,11 +3,12 @@
 
     var app = angular.module('taptap');
 
-    app.controller('BasicLevel', ['$scope', '$routeParams', 'playService', 'staffService', 'metService', 'inputService', 'outputService', 'feedbackService', 'evaluatorService',
-        function($scope, $routeParams, playService, staffService, metService, inputService, outputService, feedbackService, evaluatorService) {
+    app.controller('BasicLevel', ['$scope', '$routeParams', 'playService', 'staffService', 'metService', 'inputService', 'outputService', 'feedbackService', 'evaluatorService', 'focus',
+        function($scope, $routeParams, playService, staffService, metService, inputService, outputService, feedbackService, evaluatorService, focus) {
             var vm = this;
             var lines = getLines($routeParams.level);
 
+            focus('MainView');
             $scope.$on('$locationChangeStart', function() {
                 metService.stopPlayer();
                 metService.stopComputer();
