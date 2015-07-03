@@ -6,7 +6,7 @@
     app.config(function($routeProvider) {
         $routeProvider.when('/level/:level',
             {
-                templateUrl: '/src/templates/level.html',
+                templateUrl: 'templates/level.html',
                 controller: 'BasicLevel',
                 controllerAs: 'level'
             });

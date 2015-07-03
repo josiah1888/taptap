@@ -6,7 +6,7 @@
         return {
             restrict: 'E',
             replace: true,
-            templateUrl: '/src/directives/views/evaluator.html',
+            templateUrl: 'directives/views/evaluator.html',
             require: 'ngModel',
             scope: {
                 evaluation: '=ngModel'

@@ -60,8 +60,7 @@ input.count-off {
   position: relative;
   bottom: 3px;
   background-color: #ccc;
-  border-color: #ccc;
-  border-width: 1px;
+  border: 1px solid #ccc;
   width: 35px;
   padding-left: 5px; }
   input.count-off::-webkit-inner-spin-button {

@@ -1,0 +1,256 @@
+$color-primary--light: #32FFDC;
+$color-primary--dark: #00B294;
+
+$color-complement--light: #FF8758;
+$color-complement--dark: #FF6C32;
+
+$color-grey-light: #ccc;
+$color-grey-dark: #888;
+
+$break-sm: 320px;
+$break-md: 480px;
+$break-lg: 720px;
+
+$jumbotron-height: 100px;
+
+.container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.jumbotron {
+    &.main-view {
+        background-color: $color-complement--light;
+    }
+
+    &.left-button {
+        background-color: $color-primary--light;
+        float: left;
+        width: 45%;
+    }
+
+    &.right-button {
+        background-color: $color-primary--light;
+        float: right;
+        width: 45%;
+    }
+
+    &.staff {
+        background-color: $color-primary--light;
+        text-align: center;
+        height: $jumbotron-height;
+
+        @media screen and (max-width: $break-sm) {
+            height: $jumbotron-height * .65;
+        }
+    }
+
+    &.evaluator {
+        @extend .jumbotron.staff;
+        background-color: $color-primary--dark;
+    }
+
+    .staff-line {
+        line-height: .75em;
+        font-family: monospace;
+
+        .staff-note {
+            @media screen and (max-width: $break-lg) {
+                &:before {
+                    font-size: small;
+                }
+            }
+
+            @media screen and (max-width: $break-md) {
+                &:before {
+                    font-size: x-small;
+                }
+            }
+
+            @media screen and (max-width: $break-sm) {
+                &:before {
+                    font-size: xx-small;
+                }
+            }
+
+            &.off:before {
+                color: darken($color-primary--light, 15%);
+                content: "\e157";
+            }
+
+            &.on:before {
+                color: $color-complement--dark;
+                content: "\e074";
+            }
+
+            &.space:before {
+                content: "\e157";
+                visibility: hidden;
+            }
+
+            &.bar-line:before {
+                background-color: $color-primary--light;
+                color: darken($color-primary--light, 5%);
+                content: "\e235";
+            }
+        }
+    }
+}
+
+.controls {
+    margin-right: 6px;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:before {
+        color: #000;
+        background-color: $color-complement--light;
+        font-size: large !important;
+    }
+}
+
+input.count-off {
+    position: relative;
+    bottom: 3px;
+    background-color: $color-grey-light;
+    border: 1px solid $color-grey-light;
+    width: 35px;
+    padding-left: 5px;
+
+    &::-webkit-inner-spin-button {
+        color: $color-grey-dark;
+    }
+}
+
+label.count-off {
+}
+
+.repeat:before {
+    content: "\e030";
+}
+
+.play:before {
+    content: "\e072";
+}
+
+i.met {
+    position: relative;
+    bottom: 1px;
+    left: 2px;
+}
+
+.met-on:before {
+    content: "\f205";
+}
+
+.met-off:before {
+    color: #000;
+    content: "\f204";
+}
+
+.ng-click-active, .hit {
+    background-color: lighten($color-primary--light, 20%);
+}
+
+input[type="range"].tempo {
+    position: relative;
+    bottom: 4px;
+    display: inline-block;
+    max-width: 150px;
+    width: 25%;
+    -webkit-appearance: none;
+
+    &::-webkit-slider-runnable-track {
+        width: 300px;
+        height: 5px;
+        background: #ccc;
+        border: none;
+        border-radius: 3px;
+    }
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        border: none;
+        height: 14px;
+        width: 14px;
+        border-radius: 50%;
+        background: #888;
+        margin-top: -5px;
+    }
+
+    &:focus {
+        outline: none;
+
+        &::-webkit-slider-runnable-track {
+            background: #222;
+        }
+    }
+}
+
+label {
+    position: relative;
+    bottom: 3px;
+
+    @media screen and (max-width: $break-md) {
+        font-size: small;
+    }
+}
+
+.countOff {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    overflow: auto;
+}
+
+
+.btn--nav {
+    box-shadow: 0 10px 14px -7px #00b294;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #00b294), color-stop(1, #00b294));
+    background: -webkit-linear-gradient(top, #00b294 5%, #00b294 100%);
+    background: linear-gradient(to bottom, #00b294 5%, #00b294 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00b294', endColorstr='#00b294',GradientType=0);
+    background-color: #00b294;
+    border-radius: 43%;
+    display: inline-block;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 4px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #00b294;
+    border-width: 1px;
+    margin: 0 4px 5px 4px;
+
+    &:hover {
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #00b294), color-stop(1, #00b294));
+        background: -webkit-linear-gradient(top, #00b294 5%, #00b294 100%);
+        background: linear-gradient(to bottom, #00b294 5%, #00b294 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00b294', endColorstr='#00b294',GradientType=0);
+        background-color: #00b294;
+        color: #FFF;
+        text-decoration: none;
+    }
+
+    &:active {
+        position: relative;
+        top: 1px;
+    }
+
+    @media screen and (max-width: $break-md) {
+        & {
+            font-size: x-small;
+        }
+    }
+
+    @media screen and (max-width: $break-sm) {
+        & {
+            font-size: xx-small;
+        }
+    }
+}

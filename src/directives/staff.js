@@ -6,7 +6,7 @@
         return {
             restrict: 'E',
             replace: true,
-            templateUrl: '/src/directives/views/staff.html',
+            templateUrl: 'directives/views/staff.html',
             require: 'ngModel',
             scope: {
                 staff: '=ngModel'

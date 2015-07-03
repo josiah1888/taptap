@@ -1,5 +1,4 @@
-﻿// color vars to be separated out later
-$color-primary--light: #32FFDC;
+﻿$color-primary--light: #32FFDC;
 $color-primary--dark: #00B294;
 
 $color-complement--light: #FF8758;
@@ -17,7 +16,6 @@ $jumbotron-height: 100px;
 .container {
   padding-left: 0;
   padding-right: 0;
-  // trying to compile this.
 }
 
 .jumbotron {
@@ -117,8 +115,7 @@ input.count-off {
     position: relative;
     bottom: 3px;
     background-color: $color-grey-light;
-    border-color: $color-grey-light;
-    border-width: 1px;
+    border: 1px solid $color-grey-light;
     width: 35px;
     padding-left: 5px;
 
