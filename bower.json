@@ -1,0 +1,25 @@
+{
+  "name": "taptap",
+  "version": "1.0.0",
+  "homepage": "https://github.com/josiah1888/taptap",
+  "authors": [
+    "Josiah Burchard <jburchard@vintagesoftware.com>"
+  ],
+  "description": "tap tap drummy drummy",
+  "license": "private",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.3",
+    "bootstrap": "~3.3.5",
+    "angular-route": "~1.4.3",
+    "angular-touch": "~1.4.3",
+    "font-awesome": "~4.3.0"
+  },
+  "devDependencies": {}
+}

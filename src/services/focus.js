@@ -1,16 +1,19 @@
 ﻿(function() {
     'use strict';
 
-    var app = angular.module('taptap');
+    angular
+        .module('taptap')
+        .factory('focus', factory);
 
-    app.factory('focus', function($timeout, $window) {
-        return function(id) {
-            $timeout(function() {
+    factory.$inject = ['$timeout', '$window'];
+    function factory($timeout, $window) {
+        return function (id) {
+            $timeout(function () {
                 var element = $window.document.getElementById(id);
                 if (element) {
                     element.focus();
                 }
             });
         };
-    });
+    }
 }());

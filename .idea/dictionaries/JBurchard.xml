@@ -2,6 +2,7 @@
   <dictionary name="JBurchard">
     <words>
       <w>autoprefixer</w>
+      <w>glyphicons</w>
       <w>jscs</w>
       <w>jumbotron</w>
       <w>minify</w>
@@ -9,7 +10,9 @@
       <w>plummer</w>
       <w>prefixer</w>
       <w>scss</w>
+      <w>soundjs</w>
       <w>taptap</w>
+      <w>wiredep</w>
     </words>
   </dictionary>
 </component>

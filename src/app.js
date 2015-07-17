@@ -1,9 +1,12 @@
 ﻿(function() {
     'use strict';
 
-    var app = angular.module('taptap', ['ngRoute', 'ngTouch']);
+    angular
+        .module('taptap', ['ngRoute', 'ngTouch'])
+        .config(config);
 
-    app.config(function($routeProvider) {
+    config.$inject = ['$routeProvider'];
+    function config($routeProvider) {
         $routeProvider.when('/level/:level',
             {
                 templateUrl: 'templates/level.html',
@@ -14,5 +17,5 @@
             {
                 redirectTo: '/level/1'
             });
-    });
+    }
 })();
