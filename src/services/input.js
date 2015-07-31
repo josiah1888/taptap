@@ -1,13 +1,19 @@
 ﻿(function() {
     'use strict';
 
-    var app = angular.module('taptap');
+    angular
+        .module('taptap')
+        .factory('inputService', inputService);
 
-    app.factory('inputService', ['outputService', function(outputService) {
+    inputService.$inject = ['outputService'];
+
+    function inputService(outputService) {
         var inputService = {
             input: _input,
             getBeat: _getBeat
         };
+
+        return inputService;
 
         function _input(input) {
             var beat = _getBeat(input);
@@ -59,7 +65,5 @@
             72: 'h',
             74: 'j'
         };
-
-        return inputService;
-    }]);
+    }
 })();

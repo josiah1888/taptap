@@ -1,9 +1,11 @@
 ﻿(function() {
     'use strict';
 
-    var app = angular.module('taptap');
+    angular
+        .module('taptap')
+        .factory('feedbackService', feedbackService);
 
-    app.factory('feedbackService', [function() {
+    function feedbackService() {
         var feedbackService = {
             showFeedback: _showFeedback,
             computerIsPlaying: false,
@@ -18,6 +20,8 @@
                 show: false
             }
         };
+
+        return feedbackService;
 
         function _showFeedback(beat) {
             if (beat === 'metdownbeat') {
@@ -54,7 +58,5 @@
             feedbackService.countOff.n = n;
             feedbackService.countOff.show = feedbackService.countOff.n !== 0;
         }
-
-        return feedbackService;
-    }]);
+    }
 }());

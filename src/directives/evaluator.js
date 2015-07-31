@@ -1,16 +1,17 @@
 ﻿(function() {
     'use strict';
-    var app = angular.module('taptap');
+    angular
+        .module('taptap')
+        .directive('evaluator', evaluator);
 
-    app.directive('evaluator', function() {
+    function evaluator() {
         return {
             restrict: 'E',
-            replace: true,
             templateUrl: 'directives/views/evaluator.html',
             require: 'ngModel',
             scope: {
                 evaluation: '=ngModel'
             }
         };
-    });
+    }
 }());

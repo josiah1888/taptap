@@ -1,9 +1,13 @@
 ﻿(function() {
     'use strict';
 
-    var app = angular.module('taptap');
+    angular
+        .module('taptap')
+        .directive('elementFocus', elementFocus);
 
-    app.directive('elementFocus', ['focus', function(focus) {
+    elementFocus.$inject = ['focus'];
+
+    function elementFocus(focus) {
         return function(scope, element, attr) {
             element.on(attr.elementFocus, function() {
                 focus(attr.elementFocusId);
@@ -13,5 +17,5 @@
                 element.off(attr.elementFocus);
             });
         };
-    }]);
+    }
 }());

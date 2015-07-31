@@ -1,8 +1,7 @@
 # Created by https://www.gitignore.io
 
 ## Custom ##
-node_modules/*
-.idea/*
+node_modules/
 
 
 ### WebStorm ###

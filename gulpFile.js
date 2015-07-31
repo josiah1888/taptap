@@ -3,21 +3,35 @@ var config = require('./gulp.config')();
 var del = require('del');
 var $ = require('gulp-load-plugins')({lazy: true});
 var run = require('run-sequence');
+var browserSync = require('browser-sync');
 
 gulp.task('help', $.taskListing);
 gulp.task('default', ['help']);
 
-gulp.task('build-dev', ['inject'], function() {
+gulp.task('build.dev', function(done) {
+   run(['$templatecache', 'assets', 'lint'],
+   'inject',
+   'optimize.dev',
+   done);
+});
+
+gulp.task('optimize.dev', function() {
     var assets = $.useref.assets({ searchPath: './' });
-    var index = config.build.path + 'index.html';
+    var index = config.build.path + config.optimized.index;
+    var jsAppFilter = $.filter('**/' + config.optimized.app);
 
     return gulp
         .src(index)
         .pipe(assets)
+        .pipe($.sourcemaps.init())
+        .pipe(jsAppFilter)
+        .pipe($.babel())
+        .pipe(jsAppFilter.restore())
         .pipe($.rev())
         .pipe(assets.restore())
         .pipe($.useref())
         .pipe($.revReplace())
+        .pipe($.sourcemaps.write('.'))
         .pipe(gulp.dest(config.build.path));
 });
 
@@ -71,14 +85,14 @@ gulp.task('inject', function() {
     var seriesOptions = { read: false };
     var templateCache = config.build.js + config.templateCache.file;
 
-    var soundjs = gulp.src(config.soundjs, seriesOptions);
+    var lib = gulp.src(config.lib.js, seriesOptions);
     var main = gulp.src(config.app.js, seriesOptions);
     var templateStream = gulp.src(templateCache);
 
     return gulp
         .src(config.index)
         .pipe(wiredep(config.wiredepOptions()))
-        .pipe($.inject(series(soundjs, main, templateStream)))
+        .pipe($.inject(series(lib, main, templateStream)))
         .pipe($.inject(gulp.src(config.app.css)))
         .pipe(gulp.dest(config.build.path));
 });
@@ -111,15 +125,34 @@ gulp.task('font-awesome', function() {
         .pipe(gulp.dest(config.build.fonts))
 });
 
-gulp.task('vet', function() { // TODO fix this
-    log('Vetting Files');
+gulp.task('lint', function() {
+    var files = [].concat(config.app.js)
+
     return gulp
-        .src(config.js)
-        .pipe($.jscs())
+        .src(files)
         .pipe($.jshint())
-        .pipe($.jshint.reporter('jshint-stylish', {verbose: true}))
-        .pipe($.jshint.reporter('fail'));
+        .pipe($.jscs(config.jscs.options))
+        .on('error', function() {
+            notify('JSCS', 'JSCS Error! Check output.', this);
+        })
+        .pipe($.jscsStylish.combineWithHintResults())
+        .pipe($.jshint.reporter('jshint-stylish'))
+        .pipe($.jshint.reporter('fail'))
+        .on('error', function() {
+            notify('JSHINT', 'JSHINT Error! Check output', this);
+        });
 });
+
+function notify(title, message, context) {
+    var notifier = require('node-notifier');
+    var notifyOptions = {
+        title: title,
+        message: message
+    };
+
+    notifier.notify(notifyOptions);
+    context.emit('end');
+}
 
 gulp.task('clean', function(done) {
     var files = config.build.path + '**/*.*';
@@ -135,3 +168,15 @@ function log(msg) {
     msg = msg || 'Nothing to Log';
     console.log(msg);
 }
+
+gulp.task('watch', ['browser-sync', 'watch.static'], function(){});
+
+gulp.task('browser-sync', function() {
+    browserSync.init(config.browserSync.options);
+});
+
+gulp.task('watch.static', function() {
+    var files = [].concat(config.app.js, config.app.css, config.app.htmlTemplates);
+
+    gulp.watch(files, ['build.dev']).on('change', browserSync.reload);
+});

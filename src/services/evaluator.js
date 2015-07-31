@@ -1,9 +1,13 @@
 ﻿(function() {
     'use strict';
 
-    var app = angular.module('taptap');
+    angular
+        .module('taptap')
+        .factory('evaluatorService', evaluatorService);
 
-    app.factory('evaluatorService', ['staffService', function(staffService) {
+    evaluatorService.$inject = ['staffService'];
+
+    function evaluatorService(staffService) {
         var evaluatorService = {
             evaluate: _evaluate,
             evaluation: {
@@ -11,6 +15,8 @@
                 show: false
             }
         };
+
+        return evaluatorService;
 
         function _evaluate() {
             var playerStaff = staffService.playerStaff.compiled;
@@ -45,7 +51,5 @@
                 evaluatorService.evaluation.show = false;
             }, 5000);
         }
-
-        return evaluatorService;
-    }]);
+    }
 }());

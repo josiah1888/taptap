@@ -19,7 +19,11 @@ module.exports = function() {
             scss: 'styles/styles.scss',
             htmlTemplates: 'src/**/*.html'
         },
-        soundjs: 'lib/js/soundjs.min.js',
+        lib: {
+            js: [
+                'lib/js/soundjs.min.js'
+            ]
+        },
         templateCache: {
             html: 'src/**/*.html',
             file: 'templates.js',
@@ -31,13 +35,25 @@ module.exports = function() {
         optimized: {
             css: 'all.css',
             app: 'app.js',
-            lib: 'lib.js'
+            lib: 'lib.js',
+            index: 'index.html'
         },
         bower: {
             json: require('./bower.json'),
             directory: './bower_components/',
             ignorePath: '../'
         },
+        browserSync: {
+            options: {
+                proxy: 'localhost:1234',
+                port: '1239'
+            }
+        },
+        jscs: {
+            options: {
+                configPath: '.jscsrc'
+            }
+        }
     };
 
     config.wiredepOptions = function() {

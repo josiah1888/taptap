@@ -1,12 +1,10 @@
 ﻿(function() {
     'use strict';
 
-    var app = angular.module('taptap');
+    angular
+        .module('taptap')
+        .controller('Home', Home);
 
-    app.controller('Home', [function() {
-        var vm = this;
-
-        var version = '1.0';
-        vm.title = 'Tap Tap ' + version;
-    }]);
+    function Home() {
+    }
 })();

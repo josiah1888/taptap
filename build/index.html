@@ -1,9 +1,44 @@
 <!DOCTYPE html>
 <html ng-app="taptap" ng-controller="Home as home" ng-strict-di>
 <head>
-    <link rel="stylesheet" href="css/all-aa3dfb309e.css">
-    <script src="js/lib-e7033072d3.js"></script>
-    <script src="js/app-15eec987f8.js"></script>
+    <!-- build:css css/all.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <!-- endbower-->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/styles/styles.css">
+    <!-- endinject -->
+    <!-- endbuild -->
+    <!-- build:js js/lib.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <!-- endbower-->
+    <!-- endbuild -->
+    <!-- build:js js/app.js -->
+    <!-- inject:js -->
+    <script src="/lib/js/soundjs.min.js"></script>
+    <script src="/src/app.js"></script>
+    <script src="/src/controllers/basicLevel.js"></script>
+    <script src="/src/controllers/home.js"></script>
+    <script src="/src/directives/elementFocus.js"></script>
+    <script src="/src/directives/evaluator.js"></script>
+    <script src="/src/directives/staff.js"></script>
+    <script src="/src/services/evaluator.js"></script>
+    <script src="/src/services/feedback.js"></script>
+    <script src="/src/services/focus.js"></script>
+    <script src="/src/services/input.js"></script>
+    <script src="/src/services/met.js"></script>
+    <script src="/src/services/output.js"></script>
+    <script src="/src/services/play.js"></script>
+    <script src="/src/services/staff.js"></script>
+    <script src="/build/js/templates.js"></script>
+    <!-- endinject -->
+    <!-- endbuild -->
     <title>TapTap</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 </head>
