@@ -8,3 +8,5 @@ npm-debug.log
 vwd.webinfo
 Web.config
 temp/
+bower_components/*
+node_modules/*
