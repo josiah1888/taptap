@@ -19,8 +19,11 @@
     "bootstrap": "~3.3.5",
     "angular-route": "~1.4.3",
     "angular-touch": "~1.4.3",
-    "font-awesome": "~4.3.0",
+    "font-awesome": "~4.4.0",
     "core.js": "~1.0.1"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "resolutions": {
+    "font-awesome": "~4.4.0"
+  }
 }

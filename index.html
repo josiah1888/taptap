@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html ng-app="taptap" ng-controller="Home as home" ng-strict-di>
 <head>
-    <!-- build:css css/all.css -->
-    <!-- bower:css -->
-    <!-- endbower-->
-    <!-- inject:css -->
+    <title>TapTap</title>
+    <!-- build:css css/lib.css -->
+    <!-- inject:lib:css -->
+    <!-- endinject -->
+    <!-- endbuild -->
+    <!-- build:css css/app.css -->
+    <!-- inject:app:css -->
     <!-- endinject -->
     <!-- endbuild -->
     <!-- build:js js/lib.js -->
     <!-- bower:js -->
     <!-- endbower-->
-    <!-- endbuild -->
-    <!-- build:js js/app.js -->
-    <!-- inject:js -->
+    <!-- inject:lib:js -->
     <!-- endinject -->
     <!-- endbuild -->
-    <title>TapTap</title>
+    <!-- build:js js/app.js -->
+    <!-- inject:app:js -->
+    <!-- endinject -->
+    <!-- endbuild -->
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 </head>
 <body>
-
     <div class="container">
         <ng-view></ng-view>
     </div>
