@@ -1,27 +1,36 @@
 module.exports = function() {
+    var build = 'build/';
+    var lib = 'lib/';
+    var bower = {
+        json: require('./bower.json'),
+        directory: './bower_components/',
+        ignorePath: '../'
+    };
+
     var config = {
         minifyOptions: {
           empty: true
         },
-        index: 'index.html',
         assets: 'assets/**/*.*',
         favicon: 'favicon.ico',
+        fonts: [bower.directory + 'bootstrap/fonts/**.*', bower.directory + 'font-awesome/fonts/**.*'],
         build: {
-            assets: 'build/assets',
-            path: 'build/',
-            js: 'build/js/',
-            css: 'build/css/',
-            fonts: 'build/fonts/'
+            assets: build + 'assets',
+            path: build,
+            js: build + 'js/',
+            css: build + 'css/',
+            fonts: build + 'fonts/'
         },
         app: {
             js: 'src/**/*.js',
             css: 'styles/styles.css',
-            scss: 'styles/styles.scss',
             htmlTemplates: 'src/**/*.html'
         },
         lib: {
-            js: [
-                'lib/js/soundjs.min.js'
+            js: lib + 'js/soundjs.min.js',
+            css: [
+                lib + 'css/bootstrap.min.css',
+                lib + 'css/font-awesome.min.css'
             ]
         },
         templateCache: {
@@ -33,15 +42,10 @@ module.exports = function() {
             }
         },
         optimized: {
-            css: 'all.css',
+            css: 'app.css',
             app: 'app.js',
             lib: 'lib.js',
             index: 'index.html'
-        },
-        bower: {
-            json: require('./bower.json'),
-            directory: './bower_components/',
-            ignorePath: '../'
         },
         browserSync: {
             options: {
@@ -53,16 +57,13 @@ module.exports = function() {
             options: {
                 configPath: '.jscsrc'
             }
+        },
+        bower: bower,
+        wiredepOptions: {
+            bowerJson: bower.json,
+            directory: bower.directory,
+            ignorePath: bower.ignorePath
         }
-    };
-
-    config.wiredepOptions = function() {
-        var options = {
-            bowerJson: config.bower.json,
-            directory: config.bower.directory,
-            ignorePath: config.bower.ignorePath
-        };
-        return options;
     };
 
     return config;
